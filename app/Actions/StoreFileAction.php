@@ -11,7 +11,7 @@ use Illuminate\Support\Str;
 
 class StoreFileAction
 {
-    public function handle(FileRequest $request)
+    public function handle(FileRequest $request): File
     {
         $data = $request->validated();
 
@@ -23,12 +23,10 @@ class StoreFileAction
             name: Str::random(28) . '.' . FileFacade::guessExtension($uploaded_file),
         );
 
-        $file = File::create([
+        return File::create([
             'name' => $uploaded_file->getClientOriginalName(),
             'type' => $data['type'],
             'path' => $path,
         ]);
-
-        return new FileResource($file);
     }
 }
