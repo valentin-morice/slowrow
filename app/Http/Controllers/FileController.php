@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\FileRequest;
+use App\Http\Requests\File\StoreFileRequest;
 use App\Http\Resources\FileResource;
 use App\Models\File;
 
@@ -13,7 +13,7 @@ class FileController extends Controller
         return FileResource::collection(File::all());
     }
 
-    public function store(FileRequest $request)
+    public function store(StoreFileRequest $request)
     {
         return new FileResource(File::create($request->validated()));
     }

@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\File;
 
 use App\Enums;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
-class FileRequest extends FormRequest
+class BaseFileRequest extends FormRequest
 {
     public function rules(): array
     {
