@@ -5,3 +5,5 @@ use Illuminate\Support\Facades\Route;
 
 Route::apiResource('files', FileController::class)
     ->only(['index', 'store', 'destroy']);
+
+Route::get('/files/{file}/preview', [FileController::class, 'preview'])->name('files.preview');

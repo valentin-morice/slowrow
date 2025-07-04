@@ -12,12 +12,14 @@ class FileResource extends JsonResource
 {
     public function toArray(Request $request): array
     {
+        $url = \Illuminate\Support\Facades\File::extension($this->path) === 'pdf' ?
+            null : route('files.preview', ['file' => $this->id]);
+
         return [
             'id' => $this->id,
             'name' => $this->name,
-            'type' => $this->type->value,
             'created_at' => $this->created_at,
-            'url' => Storage::url($this->path),
+            'url' => $url,
         ];
     }
 }

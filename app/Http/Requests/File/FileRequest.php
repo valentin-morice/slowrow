@@ -6,12 +6,12 @@ use App\Enums;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
-class BaseFileRequest extends FormRequest
+class FileRequest extends FormRequest
 {
     public function rules(): array
     {
         return [
-            'name' => ['required'],
+            'file' => ['required', 'file', 'mimes:pdf,jpg,png', 'max:4096'],
             'type' => ['required', Rule::enum(Enums\FileType::class)],
         ];
     }
