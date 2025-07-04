@@ -11,7 +11,7 @@ class FileRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'file' => ['required', 'file', 'mimes:pdf,jpg,png', 'max:4096'],
+            'file' => ['required', 'file', 'mimes:pdf,jpg,png'],
             'type' => ['required', Rule::enum(Enums\FileType::class)],
         ];
     }

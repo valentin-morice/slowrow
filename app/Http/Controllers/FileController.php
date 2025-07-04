@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Actions\DestroyFileAction;
 use App\Actions\StoreFileAction;
 use App\Http\Requests\File\FileRequest;
 use App\Http\Resources\File\FileCollection;
@@ -20,12 +21,14 @@ class FileController extends Controller
 
     public function store(FileRequest $request, StoreFileAction $action): FileResource
     {
-        return $action->handle($request);
+        $file = $action->handle($request);
+
+        return new FileResource($file);
     }
 
-    public function destroy(File $file): JsonResponse
+    public function destroy(File $file, DestroyFileAction $action): JsonResponse
     {
-        $file->delete();
+        $action->handle($file);
 
         return response()->json();
     }
@@ -38,8 +41,6 @@ class FileController extends Controller
             return response()->json(['message' => 'File not found.'], 404);
         }
 
-        return Storage::response($file_path, null, [
-            'Cache-Control' => 'max-age=31536000, public',
-        ]);
+        return Storage::response($file_path);
     }
 }
