@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Actions\StoreFileAction;
 use App\Http\Requests\File\FileRequest;
-use App\Http\Resources\FileResource;
+use App\Http\Resources\File\FileCollection;
+use App\Http\Resources\File\FileResource;
 use App\Models\File;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Storage;
@@ -12,17 +13,17 @@ use Symfony\Component\HttpFoundation\StreamedResponse;
 
 class FileController extends Controller
 {
-    public function index()
+    public function index(): FileCollection
     {
-        return FileResource::collection(File::all());
+        return new FileCollection(File::all());
     }
 
-    public function store(FileRequest $request, StoreFileAction $action)
+    public function store(FileRequest $request, StoreFileAction $action): FileResource
     {
         return $action->handle($request);
     }
 
-    public function destroy(File $file)
+    public function destroy(File $file): JsonResponse
     {
         $file->delete();
 

@@ -3,11 +3,12 @@
 namespace App\Actions;
 
 use App\Http\Requests\File\FileRequest;
-use App\Http\Resources\FileResource;
+use App\Http\Resources\File\FileResource;
 use App\Models\File;
 use Illuminate\Http\UploadedFile;
-use Illuminate\Support\Str;
 use Illuminate\Support\Facades\File as FileFacade;
+use Illuminate\Support\Str;
+
 class StoreFileAction
 {
     public function handle(FileRequest $request)
