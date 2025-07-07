@@ -48,7 +48,7 @@ API_PID=$!
 echo -e "${GREEN}Laravel API started with PID: $API_PID ${NC}"
 cd ..
 
-# --- Start Vue SPA ---
+# --- Start React SPA ---
 cd "$SPA_DIR" || { echo -e "${RED}Error: SPA directory not found!${NC}"; exit 1; }
 
 if ! command -v npm &> /dev/null
@@ -60,7 +60,7 @@ fi
 # Run npm start in background, redirecting stdout and stderr to /dev/null
 npm run dev > /dev/null 2>&1 &
 SPA_PID=$!
-echo -e "${GREEN}Vue SPA started with PID: $SPA_PID ${NC}"
+echo -e "${GREEN}React SPA started with PID: $SPA_PID ${NC}"
 cd ..
 
 # --- Keep the script running ---

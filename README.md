@@ -10,12 +10,14 @@
 ## Setup
 
 1. **Clone the repository:**
+
 ```sh
 git clone <your-repo-url>
 cd slowrow
 ```
 
 2. **Install Laravel API dependencies:**
+
 ```sh
 cd api
 composer install
@@ -23,12 +25,13 @@ cp .env.example .env
 php artisan key:generate
 ```
 
-
 3. **Install SPA dependencies:**
+
 ```sh
-cd ../spa 
+cd ../spa-react
 bun install
 ```
+
 or use `npm install` if you prefer.
 
 ## Starting the Development Servers
@@ -43,11 +46,12 @@ chmod +x slowrow.sh
 This script will:
 
 - Start the Laravel API server (php artisan serve)
-- Start the Vue SPA dev server (npm run dev in the spa directory)
+- Start the React SPA dev server (npm run dev in the spa directory)
 
 Both servers will run in the background. Press Ctrl+C to stop them.
 
 ## Running Laravel Tests
+
 To run the backend (Laravel) tests:
 
 ```sh
