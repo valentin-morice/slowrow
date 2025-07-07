@@ -2,7 +2,7 @@
 
 # --- Configuration ---
 API_DIR="api"
-SPA_DIR="spa"
+SPA_DIR="spa-react"
 
 # --- Colors for better output ---
 GREEN='\033[0;32m'

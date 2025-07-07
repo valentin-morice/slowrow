@@ -74,7 +74,7 @@ const handleDelete = async (id: number, type: 'photo' | 'visa' | 'identity_docum
       <p>An <b>AnchorLess</b> feature subset.</p>
     </div>
     <v-row>
-      <v-col v-for="(documents, index) in files" cols="12" md="4">
+      <v-col :key="index" v-for="(documents, index) in files" cols="12" md="4">
         <v-card>
           <template v-slot:title>{{ index }}</template>
           <template v-slot:item>
