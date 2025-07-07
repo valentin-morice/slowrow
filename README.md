@@ -1,4 +1,4 @@
-# Slowrow – Anchorless Job Interview
+# Slowrow – Job Interview
 
 ## Prerequisites
 
